@@ -8,6 +8,8 @@ private:
     bool isEndOfWord;
 public:
     TrieNode();
+    TrieNode(const TrieNode& other);
+    TrieNode& operator=(const TrieNode& other);
     ~TrieNode();
     friend class Dictionary;
 };

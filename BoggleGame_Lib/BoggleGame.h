@@ -14,8 +14,7 @@ public:
 	BoggleGame(const std::string& dictionaryFileName, int gridSize = 4);
 	void StartGame();
 	void playGame();
-	void displayAllWordsGrid();
-	void findAllWords();
-	
+	void searchAllWordsInGrid();
+	void checkAllfindWordsIsInDict();
 };
 

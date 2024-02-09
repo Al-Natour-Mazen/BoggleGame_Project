@@ -2,10 +2,28 @@
 #include "Dictionary.h"
 
 
+
 Dictionary::Dictionary(const std::string& filename) {
     root = new TrieNode();
     totalWords = 0;
     loadDictionary(filename);
+}
+
+Dictionary::Dictionary(const Dictionary& other)
+{
+    totalWords = other.totalWords;
+    root = new TrieNode(*other.root);
+}
+
+Dictionary& Dictionary::operator=(const Dictionary& other)
+{
+    if (this != &other) {
+        delete root;
+
+        totalWords = other.totalWords;
+        root = new TrieNode(*other.root);
+    }
+    return *this;
 }
 
 Dictionary::~Dictionary()
@@ -103,7 +121,7 @@ bool Dictionary::isWordInDictionary(const std::string& word)
     auto endTime = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
 
-    std::cout << ">>> For the last word dictionary search took " << duration.count() << " nanoseconds." << std::endl;
+    //std::cout << ">>> For the last word dictionary search took " << duration.count() << " nanoseconds." << std::endl;
 
     return node && node->isEndOfWord; //if the node variable is pointing to a node with isEndOfWord set to true, it means that the word exists in the dictionary.
 }

@@ -9,6 +9,38 @@ Grid::Grid(int size) {
     }
 }
 
+Grid::Grid(const Grid& other)
+{
+    size = other.size;
+    letters = new char* [size];
+    for (int i = 0; i < size; ++i) {
+        letters[i] = new char[size];
+        for (int j = 0; j < size; ++j) {
+            letters[i][j] = other.letters[i][j];
+        }
+    }
+}
+
+Grid& Grid::operator=(const Grid& other)
+{
+    if (this != &other) {
+        for (int i = 0; i < size; ++i) {
+            delete[] letters[i];
+        }
+        delete[] letters;
+
+        size = other.size;
+        letters = new char* [size];
+        for (int i = 0; i < size; ++i) {
+            letters[i] = new char[size];
+            for (int j = 0; j < size; ++j) {
+                letters[i][j] = other.letters[i][j];
+            }
+        }
+    }
+    return *this;
+}
+
 Grid::~Grid() {
     for (int i = 0; i < size; i++) {
         delete[] letters[i];

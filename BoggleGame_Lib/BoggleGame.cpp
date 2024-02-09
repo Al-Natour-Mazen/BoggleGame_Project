@@ -73,7 +73,7 @@ void BoggleGame::playGame() {
 
 }
 
-void BoggleGame::displayAllWordsGrid() {
+void BoggleGame::searchAllWordsInGrid() {
    
     // Mesurer le temps de début
     auto start = std::chrono::high_resolution_clock::now();
@@ -87,17 +87,18 @@ void BoggleGame::displayAllWordsGrid() {
     auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);
     std::cout << "\n>> Temps d'execution afin de chercher tout les mots (sup a 3) dans toute la grille: " << duration.count() << " seconds." << std::endl;
     
-    
+    /* FOR DISPLAY ALL WORDS IN THE GRID UNCOMMENT THIS :
     std::cout << "============================================================\n";
     std::cout << "Mots de longueur superieure a 3 dans la grille : " << std::endl;
     std::cout << "============================================================\n";
     for (const std::string& word : allWordsInGrid) {
         std::cout << word << " ";
     }
+    */
 }
 
 
-void BoggleGame::findAllWords() {
+void BoggleGame::checkAllfindWordsIsInDict() {
     std::vector<std::string> wordsInDictionary;
 
     for (const std::string& word : allWordsInGrid) {
@@ -112,12 +113,23 @@ void BoggleGame::findAllWords() {
         }
     }
 
-    std::cout << "============================================================\n";
-    std::cout << "Mots de longueur superieure a 3 dans la grille qui sont dans le dictionnaire : " << std::endl;
-    std::cout << "============================================================\n";
+    if(!wordsInDictionary.empty())
+    {
+        std::cout << "==============================================================================\n";
+        std::cout << "Mots de longueur superieure a 3 dans la grille qui sont dans le dictionnaire : " << std::endl;
+        std::cout << "===============================================================================\n";
 
-    for (const std::string& word : wordsInDictionary) {
-        std::cout << word << " ";
+        for (const std::string& word : wordsInDictionary) {
+            std::cout << word << " ";
+        }
     }
+    else
+    {
+        std::cout << "===================================================\n";
+        std::cout << " Il y avait aucun mot possible dans cette partie ;) " << std::endl;
+        std::cout << "===================================================\n";
+    }
+
+   
 }
 

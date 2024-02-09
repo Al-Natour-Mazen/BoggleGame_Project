@@ -10,6 +10,8 @@ private:
     void findWords(int row, int col, std::string currentWord, std::vector<std::string>& foundWords); // For find all words in grid
 public:
     Grid(int size);
+    Grid(const Grid& other);
+    Grid& operator=(const Grid& other);
     ~Grid();
     void generateRandomGrid();
     void displayGrid();

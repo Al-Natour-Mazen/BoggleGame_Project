@@ -8,9 +8,6 @@ int main()
     BoggleGame game("dico.txt", 4);
     game.StartGame();
     game.playGame();
-    game.findAllWords();
-    /** FOR DISPLAY ALL WORDS IN THE GRID USE :
-     *     game.displayAllWordsGrid();
-     * 
-     * */
+    game.searchAllWordsInGrid();
+    game.checkAllfindWordsIsInDict();
 }

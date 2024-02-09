@@ -13,7 +13,9 @@ private:
     int totalWords;
 public:
     Dictionary(const std::string& dictionaryFilePath);
-      ~Dictionary();
+    Dictionary(const Dictionary& other);
+    Dictionary& operator=(const Dictionary& other);
+    ~Dictionary();
     void insertNode(const std::string& word);
     void loadDictionary(const std::string& dictionaryFilePath);
     bool isWordInDictionary(const std::string& word);
