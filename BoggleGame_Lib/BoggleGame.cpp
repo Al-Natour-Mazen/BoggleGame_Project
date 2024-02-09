@@ -14,9 +14,9 @@ void BoggleGame::StartGame() {
 }
 
 void BoggleGame::playGame() {
-    std::cout << "============================================================\n";
-    std::cout << "C'est parti ! Vous avez 3 minutes pour trouver des mots.\n";
-    std::cout << "============================================================\n";
+    std::cout << "\n================================================================================\n";
+    std::cout << "C'est parti ! Vous avez 3 minutes pour trouver des mots de longueurs sup a 3.\n";
+    std::cout << "===============================================================================\n";
     // l'heure actuelle
     auto startTime = std::chrono::steady_clock::now();
     auto endTime = startTime + std::chrono::minutes(1); // 3 minutes de jeu
@@ -117,7 +117,7 @@ void BoggleGame::checkAllfindWordsIsInDict() {
     {
         std::cout << "==============================================================================\n";
         std::cout << "Mots de longueur superieure a 3 dans la grille qui sont dans le dictionnaire : " << std::endl;
-        std::cout << "===============================================================================\n";
+        std::cout << "==============================================================================\n";
 
         for (const std::string& word : wordsInDictionary) {
             std::cout << word << " ";
@@ -130,6 +130,6 @@ void BoggleGame::checkAllfindWordsIsInDict() {
         std::cout << "===================================================\n";
     }
 
-   
+    std::cout << "\n\n" ;
 }
 
